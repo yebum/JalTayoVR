@@ -9447,8 +9447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4753dd4e46fac34796283e8408ec084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midPoint: {fileID: 0}
-  stopPoint: {fileID: 0}
+  midPoint: {fileID: 731284138}
+  stopPoint: {fileID: 455439043}
   startDelay: 7
   midWaitTime: 7
   moveSpeed: 3
