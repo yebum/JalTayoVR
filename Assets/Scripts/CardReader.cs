@@ -3,9 +3,10 @@ using UnityEngine;
 public class CardReader : MonoBehaviour
 {
     public bool isTagged = false;
-    public AudioSource audioSource;
-    public AudioClip boardingSound;
-    public float delayTime = 2f;
+
+    public AudioSource audioSource;   // 단말기에 붙은 AudioSource
+    public AudioClip boardingSound;   // mp3 파일
+    public float delayTime = 2.0f;
 
     private bool isProcessing = false;
 
@@ -22,7 +23,13 @@ public class CardReader : MonoBehaviour
 
             if (audioSource != null && boardingSound != null)
             {
-                audioSource.PlayOneShot(boardingSound);
+                audioSource.clip = boardingSound;  // mp3 파일 넣기
+                audioSource.Play();                // 재생
+                Debug.Log("오디오 재생");
+            }
+            else
+            {
+                Debug.LogWarning("AudioSource 또는 boardingSound가 비어 있음");
             }
 
             Invoke(nameof(ResetReader), delayTime);
