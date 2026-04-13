@@ -2636,12 +2636,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.446
+      value: -6.474
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8899999
+      value: 0.9089999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
@@ -2656,17 +2656,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
@@ -6773,7 +6773,7 @@ MonoBehaviour:
   - target: {fileID: 105633134}
     isStopPoint: 1
     waitTime: 0
-  startDelay: 7
+  startDelay: 15
   moveSpeed: 2
   arriveDistance: 0.1
 --- !u!65 &1013801887
@@ -12250,6 +12250,6 @@ SceneRoots:
   - {fileID: 31166256}
   - {fileID: 105633134}
   - {fileID: 578926496}
-  - {fileID: 569158873}
   - {fileID: 1013801881}
   - {fileID: 2025268985}
+  - {fileID: 569158873}
