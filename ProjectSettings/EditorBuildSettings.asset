@@ -15,6 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 57ffec4cfc23dd64ebec5a1314c95625
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dac28caa499525b40a9a65828a8c2393,
+      type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 94a75cccdebf3e549bc4be8c4056f812,
