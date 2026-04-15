@@ -6,17 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: 2aac229a764d3234187159e6df43eacb
+    path: Assets/Scenes/Yebum.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Map01.unity
-    guid: 7464d7bf9f23baa47a6f689aa080ce2a
+    path: Assets/Scenes/Start.unity
+    guid: a8017981a34209f4ea6465caab4aa404
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: 57ffec4cfc23dd64ebec5a1314c95625
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dac28caa499525b40a9a65828a8c2393,
-      type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 94a75cccdebf3e549bc4be8c4056f812,
