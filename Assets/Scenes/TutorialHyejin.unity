@@ -2732,9 +2732,8 @@ MonoBehaviour:
   missionCanvas: {fileID: 1784849484}
   tutorialDisplay: {fileID: 884493322}
   tutorialImages:
-  - {fileID: 21300000, guid: 7fcd4596841554c45b90cb9dee1a8898, type: 3}
-  - {fileID: 21300000, guid: 8d6a109f1b1a62b4aaa86ad83e7da361, type: 3}
-  - {fileID: 21300000, guid: aaf9f39fcfa951d46b02eae018051298, type: 3}
+  - {fileID: 21300000, guid: 74189a876820b924bbb963503f656c62, type: 3}
+  - {fileID: 21300000, guid: db392420ba83be74da9f998c06582879, type: 3}
 --- !u!114 &355624149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3045,7 +3044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7fcd4596841554c45b90cb9dee1a8898, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5939a3c6049eb24f84a95d88eab137d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5826,7 +5825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7fcd4596841554c45b90cb9dee1a8898, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74189a876820b924bbb963503f656c62, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12134,7 +12133,7 @@ MonoBehaviour:
   missionCanvas: {fileID: 1784849484}
   tutorialDisplay: {fileID: 448039992}
   tutorialImages:
-  - {fileID: 21300000, guid: 7fcd4596841554c45b90cb9dee1a8898, type: 3}
+  - {fileID: 21300000, guid: f5939a3c6049eb24f84a95d88eab137d, type: 3}
 --- !u!114 &1784849488
 MonoBehaviour:
   m_ObjectHideFlags: 0
