@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BusCard
   - Bell
+  - Bus
   layers:
   - Default
   - TransparentFX
