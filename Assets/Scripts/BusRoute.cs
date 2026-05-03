@@ -14,7 +14,7 @@ public class BusRoute : MonoBehaviour
         [Header("정류장 여부")]
         public bool isStopPoint = false;
 
-        [Header("정류장일 때 대기 시간")]
+        [Header("정차 시간")]
         public float waitTime = 10f;
     }
 
@@ -28,10 +28,14 @@ public class BusRoute : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float arriveDistance = 0.1f;
 
+    [Header("Bell System")]
+    [SerializeField] private BellController bellController;
+
     private Rigidbody rb;
     private int currentIndex = 0;
     private bool isMoving = false;
     private bool routeFinished = false;
+    private bool stopRequested = false;
     private Transform currentTarget;
 
     private enum RouteState
@@ -75,6 +79,14 @@ public class BusRoute : MonoBehaviour
         StartCoroutine(RouteRoutine());
     }
 
+    public void RequestStop()
+    {
+        if (routeFinished) return;
+
+        stopRequested = true;
+        Debug.Log("BusRoute: 다음 정류장 정차 예약됨");
+    }
+
     private IEnumerator RouteRoutine()
     {
         currentState = RouteState.WaitingToStart;
@@ -94,7 +106,7 @@ public class BusRoute : MonoBehaviour
             currentState = RouteState.Moving;
             isMoving = true;
 
-            Debug.Log($"{currentIndex + 1}번째 지점으로 이동 시작");
+            Debug.Log($"{currentIndex + 1}번 지점으로 이동 시작");
 
             while (currentState == RouteState.Moving)
             {
@@ -103,11 +115,27 @@ public class BusRoute : MonoBehaviour
 
             isMoving = false;
 
-            if (point.isStopPoint)
+            bool isFinalPoint = currentIndex == routePoints.Count - 1;
+            bool shouldStop = isFinalPoint || (point.isStopPoint && stopRequested);
+
+            if (shouldStop)
             {
                 currentState = RouteState.WaitingAtStop;
-                Debug.Log($"{currentIndex + 1}번째 정류장 도착 - {point.waitTime}초 대기");
+
+                Debug.Log($"{currentIndex + 1}번 지점 정차");
+
+                stopRequested = false;
+
+                if (bellController != null)
+                {
+                    bellController.ResetBell();
+                }
+
                 yield return new WaitForSeconds(point.waitTime);
+            }
+            else
+            {
+                Debug.Log($"{currentIndex + 1}번 지점 통과");
             }
 
             currentIndex++;
