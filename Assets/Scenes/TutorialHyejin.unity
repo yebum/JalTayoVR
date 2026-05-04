@@ -174,8 +174,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &5583132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,8 +460,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!1 &31166255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,8 +1807,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &206700711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2123,8 +2123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22441f601784e6e45abb07f1203d8ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passengerAnchor: {fileID: 1509649803}
-  showDebugLog: 0
 --- !u!65 &223713736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2321,8 +2319,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &286373474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3786,8 +3784,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!1001 &685759507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4069,8 +4067,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!1 &712578551
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,8 +5418,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &835502535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6740,8 +6738,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &933824809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7671,11 +7669,12 @@ MonoBehaviour:
     isStopPoint: 1
     waitTime: 12
   - target: {fileID: 105633134}
-    isStopPoint: 1
+    isStopPoint: 0
     waitTime: 0
   startDelay: 15
   moveSpeed: 2
   arriveDistance: 0.1
+  bellController: {fileID: 1839287941}
 --- !u!65 &1013801887
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8035,8 +8034,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &1028547876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8990,8 +8989,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!114 &1033962653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9007,8 +9006,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!82 &1033962654
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9289,8 +9288,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &1054664968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9683,8 +9682,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &1112064932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9931,8 +9930,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!82 &1125954976
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11073,8 +11072,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!82 &1606296138
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12483,8 +12482,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 8300000, guid: 6dc39aadc3accac48bb1c966dee23c09, type: 3}
+  busRoute: {fileID: 0}
 --- !u!114 &1839287942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13155,8 +13154,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3647059, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0.0336721, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!82 &2007606750
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13396,8 +13395,8 @@ MonoBehaviour:
   bellTag: Bell
   normalColor: {r: 0.3638814, g: 0, b: 0, a: 1}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
-  resetOnHoverExit: 0
   bellSound: {fileID: 0}
+  busRoute: {fileID: 0}
 --- !u!82 &2034774789
 AudioSource:
   m_ObjectHideFlags: 0
