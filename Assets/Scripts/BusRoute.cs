@@ -31,6 +31,9 @@ public class BusRoute : MonoBehaviour
     [Header("Bell System")]
     [SerializeField] private BellController bellController;
 
+    [Header("Door System")]
+    [SerializeField] private DoorController doorController;
+
     private Rigidbody rb;
     private int currentIndex = 0;
     private bool isMoving = false;
@@ -118,11 +121,32 @@ public class BusRoute : MonoBehaviour
             bool isFinalPoint = currentIndex == routePoints.Count - 1;
             bool shouldStop = isFinalPoint || (point.isStopPoint && stopRequested);
 
+            if (isFinalPoint)
+            {
+                Debug.Log($"[목적지] 무조건 정차");
+            }
+            else
+            {
+                if (stopRequested)
+                {
+                    Debug.Log($"[하차벨 인식됨] → {currentIndex + 1}번 정류장 정지");
+                }
+                else
+                {
+                    Debug.Log($"[하차벨 인식 안됨] → {currentIndex + 1}번 정류장 통과");
+                }
+            }
+
             if (shouldStop)
             {
                 currentState = RouteState.WaitingAtStop;
 
                 Debug.Log($"{currentIndex + 1}번 지점 정차");
+
+                if (doorController != null)
+                {
+                    doorController.OpenDoor();
+                }
 
                 stopRequested = false;
 
@@ -132,6 +156,13 @@ public class BusRoute : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(point.waitTime);
+
+                if (doorController != null)
+                {
+                    doorController.CloseDoor();
+                }
+
+                yield return new WaitForSeconds(1f);
             }
             else
             {
