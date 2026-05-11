@@ -60,6 +60,11 @@ public class BellController : MonoBehaviour
         if (busRoute != null)
         {
             busRoute.RequestStop();
+            Debug.Log("[BellController] BusRoute에 정차 요청 전달 완료");
+        }
+        else
+        {
+            Debug.LogError("[BellController] BusRoute가 연결되지 않음. 인스펙터에서 Bus Route를 연결해야 함");
         }
 
         Debug.Log("하차벨 입력: 다음 정류장 정차 요청");
