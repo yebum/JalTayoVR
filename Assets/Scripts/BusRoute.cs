@@ -5,16 +5,23 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class BusRoute : MonoBehaviour
 {
+    public enum StopType
+    {
+        Boarding,   // 첫 탑승 정류장
+        Optional,   // 벨 눌렀을 때만 정차
+        Final       // 마지막 정류장
+    }
+
     [System.Serializable]
     public class RoutePoint
     {
         [Header("목표 지점")]
         public Transform target;
 
-        [Header("정류장 여부")]
-        public bool isStopPoint = false;
+        [Header("정류장 타입")]
+        public StopType stopType = StopType.Optional;
 
-        [Header("정류장일 때 대기 시간")]
+        [Header("정차 시간")]
         public float waitTime = 10f;
     }
 
@@ -22,16 +29,26 @@ public class BusRoute : MonoBehaviour
     [SerializeField] private List<RoutePoint> routePoints = new List<RoutePoint>();
 
     [Header("Timing")]
-    [SerializeField] private float startDelay = 7f;
+    [SerializeField] private float startDelay = 3f;
 
     [Header("Move Settings")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float arriveDistance = 0.1f;
 
+    [Header("Bell System")]
+    [SerializeField] private BellController bellController;
+
+    [Header("Door System")]
+    [SerializeField] private DoorController doorController;
+
+    [Header("Card Reader")]
+    [SerializeField] private CardReader cardReader;
+
     private Rigidbody rb;
     private int currentIndex = 0;
     private bool isMoving = false;
     private bool routeFinished = false;
+    private bool stopRequested = false;
     private Transform currentTarget;
 
     private enum RouteState
@@ -62,23 +79,20 @@ public class BusRoute : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < routePoints.Count; i++)
-        {
-            if (routePoints[i].target == null)
-            {
-                Debug.LogError($"Route Points의 {i}번 Target이 비어 있습니다.");
-                enabled = false;
-                return;
-            }
-        }
-
         StartCoroutine(RouteRoutine());
+    }
+
+    public void RequestStop()
+    {
+        if (routeFinished) return;
+
+        stopRequested = true;
+        Debug.Log("[하차벨 인식됨] 다음 정류장 정차 요청");
     }
 
     private IEnumerator RouteRoutine()
     {
         currentState = RouteState.WaitingToStart;
-        isMoving = false;
         routeFinished = false;
 
         Debug.Log("버스 출발 전 대기");
@@ -94,7 +108,7 @@ public class BusRoute : MonoBehaviour
             currentState = RouteState.Moving;
             isMoving = true;
 
-            Debug.Log($"{currentIndex + 1}번째 지점으로 이동 시작");
+            Debug.Log($"{currentIndex + 1}번 지점으로 이동 시작");
 
             while (currentState == RouteState.Moving)
             {
@@ -103,11 +117,15 @@ public class BusRoute : MonoBehaviour
 
             isMoving = false;
 
-            if (point.isStopPoint)
+            bool shouldStop = ShouldStopAtPoint(point);
+
+            if (shouldStop)
             {
-                currentState = RouteState.WaitingAtStop;
-                Debug.Log($"{currentIndex + 1}번째 정류장 도착 - {point.waitTime}초 대기");
-                yield return new WaitForSeconds(point.waitTime);
+                yield return StartCoroutine(StopRoutine(point));
+            }
+            else
+            {
+                Debug.Log($"[하차벨 인식안됨] {currentIndex + 1}번 정류장 통과");
             }
 
             currentIndex++;
@@ -116,7 +134,89 @@ public class BusRoute : MonoBehaviour
         currentState = RouteState.Finished;
         routeFinished = true;
         isMoving = false;
+
         Debug.Log("모든 경로 이동 완료");
+    }
+
+    private bool ShouldStopAtPoint(RoutePoint point)
+    {
+        if (point.stopType == StopType.Boarding)
+        {
+            Debug.Log("[탑승 정류장] 벨 입력 없이 무조건 정차");
+            return true;
+        }
+
+        if (point.stopType == StopType.Final)
+        {
+            Debug.Log("[목적지] 무조건 정차");
+            return true;
+        }
+
+        if (point.stopType == StopType.Optional)
+        {
+            if (stopRequested)
+            {
+                Debug.Log("[하차벨 인식됨] 정류장 정차");
+                return true;
+            }
+            else
+            {
+                Debug.Log("[하차벨 인식안됨] 정류장 통과");
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    private IEnumerator StopRoutine(RoutePoint point)
+    {
+        currentState = RouteState.WaitingAtStop;
+
+        Debug.Log($"{currentIndex + 1}번 지점 정차");
+
+        if (doorController != null)
+        {
+            doorController.OpenDoor();
+        }
+
+        if (point.stopType == StopType.Boarding)
+        {
+            Debug.Log("탑승 정류장: 카드 태그 대기");
+
+            if (cardReader != null)
+            {
+                while (!cardReader.isTagged)
+                {
+                    yield return null;
+                }
+
+                Debug.Log("카드 태그 완료: 버스 출발 준비");
+            }
+            else
+            {
+                Debug.LogWarning("CardReader가 연결되지 않았습니다. waitTime만큼 대기합니다.");
+                yield return new WaitForSeconds(point.waitTime);
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(point.waitTime);
+        }
+
+        stopRequested = false;
+
+        if (bellController != null)
+        {
+            bellController.ResetBell();
+        }
+
+        if (doorController != null)
+        {
+            doorController.CloseDoor();
+        }
+
+        yield return new WaitForSeconds(1f);
     }
 
     private void FixedUpdate()
