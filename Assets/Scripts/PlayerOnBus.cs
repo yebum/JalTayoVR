@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BusPlatform : MonoBehaviour
+public class PlayerOnBus : MonoBehaviour
 {
     // 플레이어가 버스 탑승 구역(Trigger)에 들어왔을 때
     private void OnTriggerEnter(Collider other)
