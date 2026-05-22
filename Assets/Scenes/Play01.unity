@@ -7136,6 +7136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardReader_Board
       objectReference: {fileID: 0}
+    - target: {fileID: -5624719447545968024, guid: 55dbab8f3f9d51545a3d9efef52a6f8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: BusTag
+      objectReference: {fileID: 0}
     - target: {fileID: -5196398956413867323, guid: 55dbab8f3f9d51545a3d9efef52a6f8a,
         type: 3}
       propertyPath: m_IsActive
@@ -7190,6 +7195,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CardReader_Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: -934524236152909460, guid: 55dbab8f3f9d51545a3d9efef52a6f8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: BusTag
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55dbab8f3f9d51545a3d9efef52a6f8a,
         type: 3}
@@ -7407,14 +7417,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1013801895}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55dbab8f3f9d51545a3d9efef52a6f8a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1013801896}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55dbab8f3f9d51545a3d9efef52a6f8a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1013801897}
     - targetCorrespondingSourceObject: {fileID: -8057895424873660836, guid: 55dbab8f3f9d51545a3d9efef52a6f8a,
         type: 3}
       insertIndex: -1
@@ -7668,6 +7670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4753dd4e46fac34796283e8408ec084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TS: {fileID: 1591727727}
   routePoints:
   - target: {fileID: 31166256}
     stopType: 0
@@ -7875,30 +7878,6 @@ MonoBehaviour:
   door01OpenOffset: {x: 0, y: 0, z: -1.1}
   door02OpenOffset: {x: 0, y: 0, z: -1.1}
   moveTime: 1
---- !u!114 &1013801896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013801882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a41220433dbc364c9e320fdc8dfed16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1013801897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013801882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a41220433dbc364c9e320fdc8dfed16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1014293057
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11007,6 +10986,7 @@ GameObject:
   - component: {fileID: 1591727716}
   - component: {fileID: 1591727725}
   - component: {fileID: 1591727726}
+  - component: {fileID: 1591727727}
   m_Layer: 6
   m_Name: XR Origin (XR Rig)
   m_TagString: Player
@@ -11292,6 +11272,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.37051964, y: 1.4318566, z: 0.3883915}
   m_Center: {x: 0.017859459, y: 1.0480516, z: 0.018263817}
+--- !u!114 &1591727727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591727715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb447ace41e0cd4db964853debc90ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busRigidbody: {fileID: 1013801894}
 --- !u!114 &1606296134
 MonoBehaviour:
   m_ObjectHideFlags: 0

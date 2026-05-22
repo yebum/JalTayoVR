@@ -39,6 +39,6 @@ public class CardReader : MonoBehaviour
     private void ResetReader()
     {
         isProcessing = false;
-        Debug.Log("단말기 초기화 완료");
+        Debug.Log("단말기 초기화 완료"); 
     }
 }

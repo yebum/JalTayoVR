@@ -9,7 +9,7 @@ public class BusTag : MonoBehaviour
     public AudioSource audioSource;   // 사운드를 재생할 오디오 소스
     public AudioClip boardingSound;   // "승차입니다" 음원 파일
 
-    private bool isProcessing = false;
+    public bool isProcessing = false;
     public float delayTime = 2.0f;
 
     
