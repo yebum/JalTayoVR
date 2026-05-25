@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class BusRoute : MonoBehaviour
 {
+    public testscript TS;
     public enum StopType
     {
         Boarding,   // 첫 탑승 정류장
@@ -136,6 +137,7 @@ public class BusRoute : MonoBehaviour
         isMoving = false;
 
         Debug.Log("모든 경로 이동 완료");
+        TS.ExitBus();
     }
 
     private bool ShouldStopAtPoint(RoutePoint point)
@@ -192,6 +194,7 @@ public class BusRoute : MonoBehaviour
                 }
 
                 Debug.Log("카드 태그 완료: 버스 출발 준비");
+                TS.BoardBus(GetComponent<Rigidbody>());
             }
             else
             {
