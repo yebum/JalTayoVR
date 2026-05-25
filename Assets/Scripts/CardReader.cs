@@ -2,13 +2,26 @@ using UnityEngine;
 
 public class CardReader : MonoBehaviour
 {
+    [Header("íƒœê·¸ ìƒíƒœ")]
     public bool isTagged = false;
 
-    public AudioSource audioSource;   // ´Ü¸»±â¿¡ ºÙÀº AudioSource
-    public AudioClip boardingSound;   // mp3 ÆÄÀÏ
+    [Header("VR ì—†ì´ í…ŒìŠ¤íŠ¸ìš©")]
+    public bool inspectorTestTag = false;
+
+    public AudioSource audioSource;
+    public AudioClip boardingSound;
     public float delayTime = 2.0f;
 
     private bool isProcessing = false;
+
+    private void Update()
+    {
+        // VR ê¸°ê¸° ì—†ì´ í…ŒìŠ¤íŠ¸í•  ë•Œ Inspectorì—ì„œ ì²´í¬í•˜ë©´ ì¹´ë“œ íƒœê·¸ ì²˜ë¦¬
+        if (inspectorTestTag == true && isTagged == false)
+        {
+            TestCardTag();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,29 +29,40 @@ public class CardReader : MonoBehaviour
 
         if (other.CompareTag("BusCard"))
         {
-            isProcessing = true;
-            isTagged = true;
-
-            Debug.Log("Ä«µå ÅÂ±× ¼º°ø");
-
-            if (audioSource != null && boardingSound != null)
-            {
-                audioSource.clip = boardingSound;  // mp3 ÆÄÀÏ ³Ö±â
-                audioSource.Play();                // Àç»ı
-                Debug.Log("¿Àµğ¿À Àç»ı");
-            }
-            else
-            {
-                Debug.LogWarning("AudioSource ¶Ç´Â boardingSound°¡ ºñ¾î ÀÖÀ½");
-            }
-
-            Invoke(nameof(ResetReader), delayTime);
+            CardTag();
         }
+    }
+
+    private void CardTag()
+    {
+        isProcessing = true;
+        isTagged = true;
+
+        Debug.Log(gameObject.name + " ì¹´ë“œ íƒœê·¸ ì„±ê³µ");
+
+        if (audioSource != null && boardingSound != null)
+        {
+            audioSource.clip = boardingSound;
+            audioSource.Play();
+            Debug.Log(gameObject.name + " ì˜¤ë””ì˜¤ ì¬ìƒ");
+        }
+        else
+        {
+            Debug.LogWarning(gameObject.name + " AudioSource ë˜ëŠ” boardingSoundê°€ ë¹„ì–´ ìˆìŒ");
+        }
+
+        Invoke(nameof(ResetReader), delayTime);
+    }
+
+    private void TestCardTag()
+    {
+        Debug.Log(gameObject.name + " Inspector í…ŒìŠ¤íŠ¸ íƒœê·¸ ì‹¤í–‰");
+        CardTag();
     }
 
     private void ResetReader()
     {
         isProcessing = false;
-        Debug.Log("´Ü¸»±â ÃÊ±âÈ­ ¿Ï·á"); 
+        Debug.Log(gameObject.name + " ë‹¨ë§ê¸° ì´ˆê¸°í™” ì™„ë£Œ");
     }
 }
