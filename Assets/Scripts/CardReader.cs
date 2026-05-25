@@ -2,13 +2,26 @@ using UnityEngine;
 
 public class CardReader : MonoBehaviour
 {
+    [Header("태그 상태")]
     public bool isTagged = false;
 
-    public AudioSource audioSource;   // 단말기에 붙은 AudioSource
-    public AudioClip boardingSound;   // mp3 파일
+    [Header("VR 없이 테스트용")]
+    public bool inspectorTestTag = false;
+
+    public AudioSource audioSource;
+    public AudioClip boardingSound;
     public float delayTime = 2.0f;
 
     private bool isProcessing = false;
+
+    private void Update()
+    {
+        // VR 기기 없이 테스트할 때 Inspector에서 체크하면 카드 태그 처리
+        if (inspectorTestTag == true && isTagged == false)
+        {
+            TestCardTag();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,29 +29,40 @@ public class CardReader : MonoBehaviour
 
         if (other.CompareTag("BusCard"))
         {
-            isProcessing = true;
-            isTagged = true;
-
-            Debug.Log("카드 태그 성공");
-
-            if (audioSource != null && boardingSound != null)
-            {
-                audioSource.clip = boardingSound;  // mp3 파일 넣기
-                audioSource.Play();                // 재생
-                Debug.Log("오디오 재생");
-            }
-            else
-            {
-                Debug.LogWarning("AudioSource 또는 boardingSound가 비어 있음");
-            }
-
-            Invoke(nameof(ResetReader), delayTime);
+            CardTag();
         }
+    }
+
+    private void CardTag()
+    {
+        isProcessing = true;
+        isTagged = true;
+
+        Debug.Log(gameObject.name + " 카드 태그 성공");
+
+        if (audioSource != null && boardingSound != null)
+        {
+            audioSource.clip = boardingSound;
+            audioSource.Play();
+            Debug.Log(gameObject.name + " 오디오 재생");
+        }
+        else
+        {
+            Debug.LogWarning(gameObject.name + " AudioSource 또는 boardingSound가 비어 있음");
+        }
+
+        Invoke(nameof(ResetReader), delayTime);
+    }
+
+    private void TestCardTag()
+    {
+        Debug.Log(gameObject.name + " Inspector 테스트 태그 실행");
+        CardTag();
     }
 
     private void ResetReader()
     {
         isProcessing = false;
-        Debug.Log("단말기 초기화 완료");
+        Debug.Log(gameObject.name + " 단말기 초기화 완료");
     }
 }
