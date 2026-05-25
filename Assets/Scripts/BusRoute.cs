@@ -243,14 +243,14 @@ public class BusRoute : MonoBehaviour
 
         rb.MovePosition(nextPosition);
 
-        Vector3 direction = targetPosition - currentPosition;
-        direction.y = 0f;
+        //Vector3 direction = targetPosition - currentPosition;
+        //direction.y = 0f;
 
-        if (direction.sqrMagnitude > 0.0001f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
-            rb.MoveRotation(targetRotation);
-        }
+        //if (direction.sqrMagnitude > 0.0001f)
+        //{
+        //    Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
+        //    rb.MoveRotation(targetRotation);
+        //}
 
         if (Vector3.Distance(nextPosition, targetPosition) <= arriveDistance)
         {

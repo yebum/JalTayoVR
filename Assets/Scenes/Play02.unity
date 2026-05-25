@@ -10166,6 +10166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4753dd4e46fac34796283e8408ec084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TS: {fileID: 1591727725}
   routePoints:
   - target: {fileID: 31166256}
     stopType: 0
@@ -10482,7 +10483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTagged: 0
-  inspectorTestTag: 1
+  inspectorTestTag: 0
   audioSource: {fileID: 1014293057}
   boardingSound: {fileID: 8300000, guid: 0735a63f2ddb575438eed0c246b213c2, type: 3}
   delayTime: 2
@@ -15509,6 +15510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4753dd4e46fac34796283e8408ec084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TS: {fileID: 1591727725}
   routePoints:
   - target: {fileID: 1049549411}
     stopType: 0
@@ -16184,7 +16186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTagged: 0
-  inspectorTestTag: 1
+  inspectorTestTag: 0
   audioSource: {fileID: 1477844698}
   boardingSound: {fileID: 8300000, guid: 75315fb9e194a5544bc17496d4442ab1, type: 3}
   delayTime: 2
@@ -16941,6 +16943,9 @@ GameObject:
   - component: {fileID: 1591727718}
   - component: {fileID: 1591727717}
   - component: {fileID: 1591727716}
+  - component: {fileID: 1591727727}
+  - component: {fileID: 1591727726}
+  - component: {fileID: 1591727725}
   m_Layer: 6
   m_Name: XR Origin (XR Rig)
   m_TagString: Player
@@ -17178,6 +17183,67 @@ Transform:
   - {fileID: 1047865220}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1591727725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591727715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb447ace41e0cd4db964853debc90ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busRigidbody: {fileID: 1591727727}
+--- !u!65 &1591727726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591727715}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.35058117, y: 1.4280679, z: 0.40696335}
+  m_Center: {x: -0.02016306, y: 1.0243443, z: -0.016866684}
+--- !u!54 &1591727727
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591727715}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1606296134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19915,7 +19981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTagged: 0
-  inspectorTestTag: 1
+  inspectorTestTag: 0
   audioSource: {fileID: 1800545561}
   boardingSound: {fileID: 8300000, guid: 75315fb9e194a5544bc17496d4442ab1, type: 3}
   delayTime: 2
@@ -20903,7 +20969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTagged: 0
-  inspectorTestTag: 1
+  inspectorTestTag: 0
   audioSource: {fileID: 1931508494}
   boardingSound: {fileID: 8300000, guid: 0735a63f2ddb575438eed0c246b213c2, type: 3}
   delayTime: 2
