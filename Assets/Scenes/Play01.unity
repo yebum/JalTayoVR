@@ -7986,8 +7986,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa3f20e3875fe849b8be72e49da7fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readerType: 1
   isTagged: 0
   inspectorTestTag: 0
+  TS: {fileID: 1591727727}
   audioSource: {fileID: 1014293057}
   boardingSound: {fileID: 8300000, guid: 0735a63f2ddb575438eed0c246b213c2, type: 3}
   delayTime: 2
@@ -12634,8 +12636,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa3f20e3875fe849b8be72e49da7fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readerType: 0
   isTagged: 0
   inspectorTestTag: 0
+  TS: {fileID: 0}
   audioSource: {fileID: 1800545561}
   boardingSound: {fileID: 8300000, guid: 75315fb9e194a5544bc17496d4442ab1, type: 3}
   delayTime: 2

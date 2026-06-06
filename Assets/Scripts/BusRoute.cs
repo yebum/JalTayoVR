@@ -6,11 +6,12 @@ using System.Collections.Generic;
 public class BusRoute : MonoBehaviour
 {
     public testscript TS;
+
     public enum StopType
     {
-        Boarding,   // 첫 탑승 정류장
-        Optional,   // 벨 눌렀을 때만 정차
-        Final       // 마지막 정류장
+        Boarding,
+        Optional,
+        Final
     }
 
     [System.Serializable]
@@ -137,6 +138,7 @@ public class BusRoute : MonoBehaviour
         isMoving = false;
 
         Debug.Log("모든 경로 이동 완료");
+
         TS.ExitBus();
     }
 
@@ -243,14 +245,14 @@ public class BusRoute : MonoBehaviour
 
         rb.MovePosition(nextPosition);
 
-        //Vector3 direction = targetPosition - currentPosition;
-        //direction.y = 0f;
-
-        //if (direction.sqrMagnitude > 0.0001f)
-        //{
-        //    Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
-        //    rb.MoveRotation(targetRotation);
-        //}
+        // Vector3 direction = targetPosition - currentPosition;
+        // direction.y = 0f;
+        //
+        // if (direction.sqrMagnitude > 0.0001f)
+        // {
+        //     Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
+        //     rb.MoveRotation(targetRotation);
+        // }
 
         if (Vector3.Distance(nextPosition, targetPosition) <= arriveDistance)
         {
