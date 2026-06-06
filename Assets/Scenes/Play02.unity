@@ -5425,7 +5425,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.474
+      value: -14.364
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76c79e7eeb782eb40868f1655fa352de,
         type: 3}
@@ -5810,7 +5810,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578926492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5862,7 +5862,7 @@ Transform:
   m_GameObject: {fileID: 578926492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.412, y: 0.12599993, z: -26.09}
+  m_LocalPosition: {x: -14.302, y: 0.12599993, z: -26.09}
   m_LocalScale: {x: 0.85749346, y: 1.6962029, z: 0.81383}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17413,7 +17413,7 @@ Transform:
   m_GameObject: {fileID: 1591727715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: -0.22800007, z: -27.88}
+  m_LocalPosition: {x: -14.39, y: -0.22800007, z: -27.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17724,6 +17724,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 15.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6325226559445011013, guid: 7c5d7262119a1904aa8a9ac641526471,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.46
+      objectReference: {fileID: 0}
     - target: {fileID: 6830945432629781959, guid: 7c5d7262119a1904aa8a9ac641526471,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17749,6 +17754,7 @@ PrefabInstance:
     - {fileID: 3455292422214010178, guid: 7c5d7262119a1904aa8a9ac641526471, type: 3}
     - {fileID: -5754060345647867467, guid: 7c5d7262119a1904aa8a9ac641526471, type: 3}
     - {fileID: -3410185793394415013, guid: 7c5d7262119a1904aa8a9ac641526471, type: 3}
+    - {fileID: 5721537177813197816, guid: 7c5d7262119a1904aa8a9ac641526471, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5148817236446094103, guid: 7c5d7262119a1904aa8a9ac641526471,
